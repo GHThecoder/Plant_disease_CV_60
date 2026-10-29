@@ -120,16 +120,17 @@ def main() -> None:
     }
     n_labels = len(label_names)
     n_manifest_classes = int(m["class"].nunique())
+    folders_agree = all(v == n_labels for v in folder_counts.values())
     class_reconcile = {
         "labels_json": n_labels,
         "manifest_unique_class": n_manifest_classes,
         "folders": folder_counts,
-        "all_equal_64": n_labels == n_manifest_classes == 64
-        and all(v == 64 for v in folder_counts.values()),
+        "n_classes": n_labels,
+        "all_equal": n_labels == n_manifest_classes and folders_agree,
         "note": (
-            "Dataset is 64 classes after Bollrot removal + <100-example filter. "
-            "Any '65' figure is stale (pre-filter/checkpoint era); not present in "
-            "current labels/manifest/folders."
+            f"labels.json, manifest, and train/val/test folders all have {n_labels} classes."
+            if n_labels == n_manifest_classes and folders_agree
+            else "labels.json, manifest, and folder counts disagree."
         ),
     }
 
@@ -215,7 +216,7 @@ def main() -> None:
     }
 
     overall_pass = (
-        class_reconcile["all_equal_64"]
+        class_reconcile["all_equal"]
         and strat["ok"]
         and phash["ok"]
     )
@@ -267,13 +268,16 @@ def main() -> None:
 
     print("\n=== Class count ===")
     print(f"  labels={n_labels} manifest={n_manifest_classes} folders={folder_counts}")
-    print(f"  {'PASS' if class_reconcile['all_equal_64'] else 'FAIL'}: reconciled to 64 (not 65)")
+    print(
+        f"  {'PASS' if class_reconcile['all_equal'] else 'FAIL'}: "
+        f"labels, manifest, and folders agree on {n_labels} classes"
+    )
 
     print("\n=== Stratification ===")
     print(f"  val min/max = {strat['val_min']}/{strat['val_max']}")
     print(f"  missing val classes: {missing['val'] or 'none'}")
     print(f"  val < 5: {val_lt5 or 'none'}")
-    print(f"  {'PASS' if strat['ok'] else 'FAIL'}: all 64 classes in all splits, val >= 5")
+    print(f"  {'PASS' if strat['ok'] else 'FAIL'}: all {n_labels} classes in all splits, val >= 5")
 
     print("\n=== pHash train<->val (Hamming <= %d) ===" % HAMMING_MAX)
     print(f"  pairs={len(pairs)}  val_images_hit={len(val_leakers)}  same_class_val_hit={len(same_class_leakers)}")

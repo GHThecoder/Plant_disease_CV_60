@@ -1,11 +1,11 @@
 {
   "dataset_root": "C:\\Users\\guray\\Desktop\\archive (45)\\ultimate_plant_dataset_v1",
-  "n_manifest": 59613,
-  "n_labels": 64,
+  "n_manifest": 46677,
+  "n_labels": 60,
   "split_counts_manifest": {
-    "train": 41747,
-    "test": 8934,
-    "val": 8932
+    "train": 32657,
+    "test": 7035,
+    "val": 6985
   },
   "checks": {
     "cross_split": {
@@ -57,7 +57,7 @@
     },
     "manifest_vs_disk": {
       "ok": true,
-      "n_disk": 59613,
+      "n_disk": 46677,
       "n_missing_on_disk": 0,
       "n_orphan_on_disk": 0,
       "missing_examples": [],
@@ -71,7 +71,7 @@
     },
     "rehash": {
       "ok": true,
-      "n_checked": 59613,
+      "n_checked": 46677,
       "n_mismatch": 0,
       "n_hash_errors": 0,
       "mismatch_examples": [],

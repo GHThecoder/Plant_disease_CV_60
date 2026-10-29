@@ -332,7 +332,24 @@
   "phash_split_links": 3846,
   "min_examples_filter": 100,
   "leakage_audit": {
+    "pass": true,
     "identity_ok": true,
-    "sha_ok": true
+    "sha_ok": true,
+    "original_path_ok": true,
+    "disk_ok": true,
+    "rehash_ok": true,
+    "labels_ok": true,
+    "n_cross_class_duplicate_sha": 1,
+    "report": "leakage_audit_report.json"
+  },
+  "phash_stratification_audit": {
+    "pass": true,
+    "phash_ok": true,
+    "n_near_dup_pairs": 104,
+    "n_val_leakers": 94,
+    "stratification_ok": true,
+    "val_min": 11,
+    "n_classes": 60,
+    "report": "phash_stratification_report.json"
   }
 }

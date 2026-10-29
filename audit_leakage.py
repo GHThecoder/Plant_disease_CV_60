@@ -63,7 +63,9 @@ def main() -> None:
         "dataset_root": str(ROOT),
         "n_manifest": int(len(m)),
         "n_labels": len(label_names),
-        "split_counts_manifest": m["split"].value_counts().to_dict(),
+        "split_counts_manifest": {
+            str(k): int(v) for k, v in m["split"].value_counts().to_dict().items()
+        },
         "checks": {},
         "pass": True,
     }

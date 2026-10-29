@@ -1,0 +1,5 @@
+{
+  "backbone": "efficientnet_b1",
+  "temperature": 0.5400351285934448,
+  "temperature_baked_in_exports": true
+}

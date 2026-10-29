@@ -1,0 +1,34 @@
+{
+  "backbone": "efficientnet_b0",
+  "best_epoch": 19,
+  "best_val_f1_macro": 0.9523496698615544,
+  "best_val_metrics": {
+    "acc": 0.9795275590551181,
+    "top3": 0.9928418038654259,
+    "top5": 0.9944166070150322,
+    "precision_micro": 0.9795275590551181,
+    "recall_micro": 0.9795275590551181,
+    "f1_micro": 0.9795275590551181,
+    "precision_macro": 0.9496465669620074,
+    "recall_macro": 0.9567518176519251,
+    "f1_macro": 0.9523496698615544,
+    "precision_weighted": 0.9803049984341926,
+    "recall_weighted": 0.9795275590551181,
+    "f1_weighted": 0.9796457323189905,
+    "kappa": 0.9787825675125084,
+    "mcc": 0.9787920363101548,
+    "log_loss": 0.5077831005989626,
+    "brier": 0.16718786582332001,
+    "roc_auc_ovr_macro": 0.9828764321304543,
+    "ece": 0.3196089185598328,
+    "mce": 0.6387626332480733
+  },
+  "hparams": {
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.1,
+    "hidden_mult": 0.5,
+    "drop_rate": 0.1,
+    "batch_size": 64
+  }
+}

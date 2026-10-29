@@ -1,0 +1,12 @@
+{
+  "backbone": "efficientnet_b2",
+  "best_val_f1_macro": 0.9528233177217031,
+  "hparams": {
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "label_smoothing": 0.1,
+    "hidden_mult": 0.5,
+    "drop_rate": 0.1,
+    "batch_size": 64
+  }
+}

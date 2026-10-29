@@ -1,0 +1,42 @@
+{
+  "backbone": "efficientnet_b1",
+  "checkpoint": "C:\\Users\\guray\\Desktop\\archive (45)\\ultimate_plant_dataset_v1\\runs\\efficientnet_b1\\best_overall_f1.pt",
+  "temperature": 0.5400351285934448,
+  "val_before": {
+    "split": "val",
+    "T": 1.0,
+    "acc": 0.952469577666428,
+    "nll": 0.5969316363334656,
+    "ece": 0.30800705400636214,
+    "mce": 0.6037474599751559,
+    "mean_confidence": 0.6447747349739075
+  },
+  "val_after": {
+    "split": "val",
+    "T": 0.5400351285934448,
+    "acc": 0.952469577666428,
+    "nll": 0.26939982175827026,
+    "ece": 0.019291361336547685,
+    "mce": 0.32293988466262813,
+    "mean_confidence": 0.9481835961341858
+  },
+  "note": "Apply as softmax(logits / T). Argmax / accuracy unchanged.",
+  "test_before": {
+    "split": "test",
+    "T": 1.0,
+    "acc": 0.946410803127221,
+    "nll": 0.6075583696365356,
+    "ece": 0.3002831348753517,
+    "mce": 0.5923871931793926,
+    "mean_confidence": 0.6476319432258606
+  },
+  "test_after": {
+    "split": "test",
+    "T": 0.5400351285934448,
+    "acc": 0.946410803127221,
+    "nll": 0.29677027463912964,
+    "ece": 0.02190412131072612,
+    "mce": 0.2363869994878769,
+    "mean_confidence": 0.9506699442863464
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "dataset_root": "C:\\Users\\guray\\Desktop\\archive (45)\\ultimate_plant_dataset_v1",
+  "n_manifest": 59613,
+  "n_labels": 64,
+  "split_counts_manifest": {
+    "train": 41747,
+    "test": 8934,
+    "val": 8932
+  },
+  "checks": {
+    "cross_split": {
+      "identity_id": {
+        "ok": true,
+        "n_leaking_keys": 0,
+        "examples": {}
+      },
+      "sha256": {
+        "ok": true,
+        "n_leaking_keys": 0,
+        "examples": {}
+      },
+      "original_path": {
+        "ok": true,
+        "n_leaking_keys": 0,
+        "examples": {}
+      }
+    },
+    "duplicate_sha": {
+      "ok": true,
+      "n_duplicate_sha_groups": 1,
+      "n_cross_class": 1,
+      "n_cross_split": 0,
+      "cross_class_examples": [
+        {
+          "sha256": "fca69940d80b8b3b53c21225b414f4533db83965fdacd4bab3d77eed87079fa3",
+          "n": 2,
+          "classes": [
+            "Wheat___Black_rust",
+            "Wheat___Leaf_blight"
+          ],
+          "splits": [
+            "train"
+          ],
+          "cross_class": true,
+          "cross_split": false,
+          "paths": [
+            "train/Wheat___Black_rust/00000734.jpg",
+            "train/Wheat___Leaf_blight/00003220.jpg"
+          ]
+        }
+      ],
+      "warn_cross_class": true
+    },
+    "duplicate_identity": {
+      "ok": true,
+      "n_duplicate_rows": 0
+    },
+    "manifest_vs_disk": {
+      "ok": true,
+      "n_disk": 59613,
+      "n_missing_on_disk": 0,
+      "n_orphan_on_disk": 0,
+      "missing_examples": [],
+      "orphan_examples": []
+    },
+    "labels_consistency": {
+      "ok": true,
+      "n_folder_issues": 0,
+      "folder_issues": [],
+      "n_bad_class_index": 0
+    },
+    "rehash": {
+      "ok": true,
+      "n_checked": 59613,
+      "n_mismatch": 0,
+      "n_hash_errors": 0,
+      "mismatch_examples": [],
+      "error_examples": []
+    }
+  },
+  "pass": true,
+  "identity_ok": true,
+  "sha_ok": true,
+  "original_path_ok": true,
+  "disk_ok": true,
+  "rehash_ok": true,
+  "labels_ok": true
+}

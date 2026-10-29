@@ -1,0 +1,338 @@
+{
+  "seed": 42,
+  "ratios": {
+    "train": 0.7,
+    "val": 0.15,
+    "test": 0.15000000000000005
+  },
+  "scanned_total": 124736,
+  "dropped_augmentations": 45460,
+  "non_aug_candidates": 79276,
+  "unique_groups_kept": 46677,
+  "exact_dupes_collapsed": 32599,
+  "num_classes": 60,
+  "split_counts": {
+    "val": 6985,
+    "train": 32657,
+    "test": 7035
+  },
+  "copy_modes": {
+    "hardlink": 46677
+  },
+  "representatives_by_source": {
+    "2": 15353,
+    "PlantVillage": 20624,
+    "valid": 3830,
+    "Rice_Leaf_AUG": 867,
+    "Train": 5410,
+    "Validation": 593
+  },
+  "per_class": {
+    "Apple___Apple_scab": {
+      "train": 441,
+      "val": 94,
+      "test": 95
+    },
+    "Apple___Black_rot": {
+      "train": 436,
+      "val": 90,
+      "test": 95
+    },
+    "Apple___Cedar_apple_rust": {
+      "train": 192,
+      "val": 41,
+      "test": 42
+    },
+    "Apple___healthy": {
+      "train": 1149,
+      "val": 244,
+      "test": 245
+    },
+    "Cherry_(including_sour)___Powdery_mildew": {
+      "train": 739,
+      "val": 156,
+      "test": 157
+    },
+    "Cherry_(including_sour)___healthy": {
+      "train": 606,
+      "val": 126,
+      "test": 122
+    },
+    "Corn___Common_rust": {
+      "train": 925,
+      "val": 197,
+      "test": 201
+    },
+    "Corn___Ear_rot": {
+      "train": 81,
+      "val": 17,
+      "test": 18
+    },
+    "Corn___Fall_armyworm": {
+      "train": 74,
+      "val": 16,
+      "test": 18
+    },
+    "Corn___Gray_leaf_spot": {
+      "train": 401,
+      "val": 86,
+      "test": 87
+    },
+    "Corn___Northern_Leaf_Blight": {
+      "train": 688,
+      "val": 149,
+      "test": 148
+    },
+    "Corn___healthy": {
+      "train": 826,
+      "val": 177,
+      "test": 178
+    },
+    "Cotton___Aphid": {
+      "train": 102,
+      "val": 22,
+      "test": 22
+    },
+    "Cotton___Bacterial_blight": {
+      "train": 387,
+      "val": 79,
+      "test": 85
+    },
+    "Cotton___Leaf_curl": {
+      "train": 266,
+      "val": 55,
+      "test": 58
+    },
+    "Cotton___Wilt": {
+      "train": 280,
+      "val": 55,
+      "test": 60
+    },
+    "Cotton___healthy": {
+      "train": 368,
+      "val": 81,
+      "test": 58
+    },
+    "Grape___Black_rot": {
+      "train": 823,
+      "val": 178,
+      "test": 179
+    },
+    "Grape___Esca_(Black_Measles)": {
+      "train": 960,
+      "val": 213,
+      "test": 210
+    },
+    "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)": {
+      "train": 753,
+      "val": 161,
+      "test": 162
+    },
+    "Grape___healthy": {
+      "train": 295,
+      "val": 64,
+      "test": 64
+    },
+    "Peach___Bacterial_spot": {
+      "train": 1609,
+      "val": 344,
+      "test": 344
+    },
+    "Peach___healthy": {
+      "train": 252,
+      "val": 53,
+      "test": 55
+    },
+    "Pepper,_bell___Bacterial_spot": {
+      "train": 698,
+      "val": 149,
+      "test": 150
+    },
+    "Pepper,_bell___healthy": {
+      "train": 1031,
+      "val": 221,
+      "test": 226
+    },
+    "Potato___Early_blight": {
+      "train": 701,
+      "val": 148,
+      "test": 151
+    },
+    "Potato___Late_blight": {
+      "train": 698,
+      "val": 151,
+      "test": 151
+    },
+    "Potato___healthy": {
+      "train": 105,
+      "val": 22,
+      "test": 25
+    },
+    "Rice___Bacterial_leaf_blight": {
+      "train": 60,
+      "val": 13,
+      "test": 16
+    },
+    "Rice___Brown_spot": {
+      "train": 99,
+      "val": 21,
+      "test": 21
+    },
+    "Rice___Leaf_blast": {
+      "train": 65,
+      "val": 14,
+      "test": 14
+    },
+    "Rice___Leaf_scald": {
+      "train": 45,
+      "val": 11,
+      "test": 20
+    },
+    "Rice___Sheath_blight": {
+      "train": 202,
+      "val": 42,
+      "test": 40
+    },
+    "Rice___healthy": {
+      "train": 124,
+      "val": 27,
+      "test": 33
+    },
+    "Strawberry___Leaf_scorch": {
+      "train": 777,
+      "val": 166,
+      "test": 166
+    },
+    "Strawberry___healthy": {
+      "train": 318,
+      "val": 69,
+      "test": 69
+    },
+    "Sugarcane___Mosaic": {
+      "train": 272,
+      "val": 58,
+      "test": 59
+    },
+    "Sugarcane___Red_rot": {
+      "train": 412,
+      "val": 89,
+      "test": 88
+    },
+    "Sugarcane___Yellow_rust": {
+      "train": 345,
+      "val": 74,
+      "test": 75
+    },
+    "Sugarcane___healthy": {
+      "train": 342,
+      "val": 72,
+      "test": 74
+    },
+    "Tomato___Bacterial_spot": {
+      "train": 1483,
+      "val": 321,
+      "test": 323
+    },
+    "Tomato___Early_blight": {
+      "train": 700,
+      "val": 150,
+      "test": 150
+    },
+    "Tomato___Late_blight": {
+      "train": 1331,
+      "val": 284,
+      "test": 286
+    },
+    "Tomato___Leaf_Mold": {
+      "train": 666,
+      "val": 143,
+      "test": 143
+    },
+    "Tomato___Septoria_leaf_spot": {
+      "train": 1240,
+      "val": 266,
+      "test": 265
+    },
+    "Tomato___Spider_mites Two-spotted_spider_mite": {
+      "train": 1173,
+      "val": 250,
+      "test": 253
+    },
+    "Tomato___Target_Spot": {
+      "train": 983,
+      "val": 210,
+      "test": 211
+    },
+    "Tomato___Tomato_Yellow_Leaf_Curl_Virus": {
+      "train": 3627,
+      "val": 785,
+      "test": 773
+    },
+    "Tomato___Tomato_mosaic_virus": {
+      "train": 260,
+      "val": 55,
+      "test": 58
+    },
+    "Tomato___healthy": {
+      "train": 1112,
+      "val": 236,
+      "test": 237
+    },
+    "Wheat___Aphid": {
+      "train": 136,
+      "val": 29,
+      "test": 29
+    },
+    "Wheat___Black_rust": {
+      "train": 111,
+      "val": 24,
+      "test": 25
+    },
+    "Wheat___Brown_leaf_rust": {
+      "train": 74,
+      "val": 15,
+      "test": 16
+    },
+    "Wheat___Flag_smut": {
+      "train": 70,
+      "val": 17,
+      "test": 18
+    },
+    "Wheat___Leaf_blight": {
+      "train": 123,
+      "val": 26,
+      "test": 28
+    },
+    "Wheat___Mite": {
+      "train": 131,
+      "val": 28,
+      "test": 33
+    },
+    "Wheat___Powdery_mildew": {
+      "train": 149,
+      "val": 30,
+      "test": 32
+    },
+    "Wheat___Scab": {
+      "train": 73,
+      "val": 15,
+      "test": 16
+    },
+    "Wheat___Stem_fly": {
+      "train": 122,
+      "val": 25,
+      "test": 25
+    },
+    "Wheat___healthy": {
+      "train": 146,
+      "val": 31,
+      "test": 33
+    }
+  },
+  "phash_split_links": 3846,
+  "min_examples_filter": 100,
+  "leakage_audit": {
+    "identity_ok": true,
+    "sha_ok": true
+  }
+}

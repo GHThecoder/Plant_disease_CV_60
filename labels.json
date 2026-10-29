@@ -1,0 +1,617 @@
+[
+  {
+    "index": 0,
+    "name": "Apple___Apple_scab",
+    "crop": "Apple",
+    "disease": "Apple_scab",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 1,
+    "name": "Apple___Black_rot",
+    "crop": "Apple",
+    "disease": "Black_rot",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 2,
+    "name": "Apple___Cedar_apple_rust",
+    "crop": "Apple",
+    "disease": "Cedar_apple_rust",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 3,
+    "name": "Apple___healthy",
+    "crop": "Apple",
+    "disease": "healthy",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 4,
+    "name": "Cherry_(including_sour)___Powdery_mildew",
+    "crop": "Cherry_(including_sour)",
+    "disease": "Powdery_mildew",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 5,
+    "name": "Cherry_(including_sour)___healthy",
+    "crop": "Cherry_(including_sour)",
+    "disease": "healthy",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 6,
+    "name": "Corn___Common_rust",
+    "crop": "Corn",
+    "disease": "Common_rust",
+    "sources": [
+      "2",
+      "Train",
+      "Validation",
+      "valid"
+    ]
+  },
+  {
+    "index": 7,
+    "name": "Corn___Ear_rot",
+    "crop": "Corn",
+    "disease": "Ear_rot",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 8,
+    "name": "Corn___Fall_armyworm",
+    "crop": "Corn",
+    "disease": "Fall_armyworm",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 9,
+    "name": "Corn___Gray_leaf_spot",
+    "crop": "Corn",
+    "disease": "Gray_leaf_spot",
+    "sources": [
+      "2",
+      "Train",
+      "Validation",
+      "valid"
+    ]
+  },
+  {
+    "index": 10,
+    "name": "Corn___Northern_Leaf_Blight",
+    "crop": "Corn",
+    "disease": "Northern_Leaf_Blight",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 11,
+    "name": "Corn___healthy",
+    "crop": "Corn",
+    "disease": "healthy",
+    "sources": [
+      "2",
+      "Train",
+      "Validation",
+      "valid"
+    ]
+  },
+  {
+    "index": 12,
+    "name": "Cotton___Aphid",
+    "crop": "Cotton",
+    "disease": "Aphid",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 13,
+    "name": "Cotton___Bacterial_blight",
+    "crop": "Cotton",
+    "disease": "Bacterial_blight",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 14,
+    "name": "Cotton___Leaf_curl",
+    "crop": "Cotton",
+    "disease": "Leaf_curl",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 15,
+    "name": "Cotton___Wilt",
+    "crop": "Cotton",
+    "disease": "Wilt",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 16,
+    "name": "Cotton___healthy",
+    "crop": "Cotton",
+    "disease": "healthy",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 17,
+    "name": "Grape___Black_rot",
+    "crop": "Grape",
+    "disease": "Black_rot",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 18,
+    "name": "Grape___Esca_(Black_Measles)",
+    "crop": "Grape",
+    "disease": "Esca_(Black_Measles)",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 19,
+    "name": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "crop": "Grape",
+    "disease": "Leaf_blight_(Isariopsis_Leaf_Spot)",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 20,
+    "name": "Grape___healthy",
+    "crop": "Grape",
+    "disease": "healthy",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 21,
+    "name": "Peach___Bacterial_spot",
+    "crop": "Peach",
+    "disease": "Bacterial_spot",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 22,
+    "name": "Peach___healthy",
+    "crop": "Peach",
+    "disease": "healthy",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 23,
+    "name": "Pepper,_bell___Bacterial_spot",
+    "crop": "Pepper,_bell",
+    "disease": "Bacterial_spot",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 24,
+    "name": "Pepper,_bell___healthy",
+    "crop": "Pepper,_bell",
+    "disease": "healthy",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 25,
+    "name": "Potato___Early_blight",
+    "crop": "Potato",
+    "disease": "Early_blight",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 26,
+    "name": "Potato___Late_blight",
+    "crop": "Potato",
+    "disease": "Late_blight",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 27,
+    "name": "Potato___healthy",
+    "crop": "Potato",
+    "disease": "healthy",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 28,
+    "name": "Rice___Bacterial_leaf_blight",
+    "crop": "Rice",
+    "disease": "Bacterial_leaf_blight",
+    "sources": [
+      "Rice_Leaf_AUG"
+    ]
+  },
+  {
+    "index": 29,
+    "name": "Rice___Brown_spot",
+    "crop": "Rice",
+    "disease": "Brown_spot",
+    "sources": [
+      "Rice_Leaf_AUG"
+    ]
+  },
+  {
+    "index": 30,
+    "name": "Rice___Leaf_blast",
+    "crop": "Rice",
+    "disease": "Leaf_blast",
+    "sources": [
+      "Rice_Leaf_AUG"
+    ]
+  },
+  {
+    "index": 31,
+    "name": "Rice___Leaf_scald",
+    "crop": "Rice",
+    "disease": "Leaf_scald",
+    "sources": [
+      "Rice_Leaf_AUG"
+    ]
+  },
+  {
+    "index": 32,
+    "name": "Rice___Sheath_blight",
+    "crop": "Rice",
+    "disease": "Sheath_blight",
+    "sources": [
+      "Rice_Leaf_AUG"
+    ]
+  },
+  {
+    "index": 33,
+    "name": "Rice___healthy",
+    "crop": "Rice",
+    "disease": "healthy",
+    "sources": [
+      "Rice_Leaf_AUG"
+    ]
+  },
+  {
+    "index": 34,
+    "name": "Strawberry___Leaf_scorch",
+    "crop": "Strawberry",
+    "disease": "Leaf_scorch",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 35,
+    "name": "Strawberry___healthy",
+    "crop": "Strawberry",
+    "disease": "healthy",
+    "sources": [
+      "2",
+      "valid"
+    ]
+  },
+  {
+    "index": 36,
+    "name": "Sugarcane___Mosaic",
+    "crop": "Sugarcane",
+    "disease": "Mosaic",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 37,
+    "name": "Sugarcane___Red_rot",
+    "crop": "Sugarcane",
+    "disease": "Red_rot",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 38,
+    "name": "Sugarcane___Yellow_rust",
+    "crop": "Sugarcane",
+    "disease": "Yellow_rust",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 39,
+    "name": "Sugarcane___healthy",
+    "crop": "Sugarcane",
+    "disease": "healthy",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 40,
+    "name": "Tomato___Bacterial_spot",
+    "crop": "Tomato",
+    "disease": "Bacterial_spot",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 41,
+    "name": "Tomato___Early_blight",
+    "crop": "Tomato",
+    "disease": "Early_blight",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 42,
+    "name": "Tomato___Late_blight",
+    "crop": "Tomato",
+    "disease": "Late_blight",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 43,
+    "name": "Tomato___Leaf_Mold",
+    "crop": "Tomato",
+    "disease": "Leaf_Mold",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 44,
+    "name": "Tomato___Septoria_leaf_spot",
+    "crop": "Tomato",
+    "disease": "Septoria_leaf_spot",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 45,
+    "name": "Tomato___Spider_mites Two-spotted_spider_mite",
+    "crop": "Tomato",
+    "disease": "Spider_mites Two-spotted_spider_mite",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 46,
+    "name": "Tomato___Target_Spot",
+    "crop": "Tomato",
+    "disease": "Target_Spot",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 47,
+    "name": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "crop": "Tomato",
+    "disease": "Tomato_Yellow_Leaf_Curl_Virus",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 48,
+    "name": "Tomato___Tomato_mosaic_virus",
+    "crop": "Tomato",
+    "disease": "Tomato_mosaic_virus",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 49,
+    "name": "Tomato___healthy",
+    "crop": "Tomato",
+    "disease": "healthy",
+    "sources": [
+      "2",
+      "PlantVillage",
+      "valid"
+    ]
+  },
+  {
+    "index": 50,
+    "name": "Wheat___Aphid",
+    "crop": "Wheat",
+    "disease": "Aphid",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 51,
+    "name": "Wheat___Black_rust",
+    "crop": "Wheat",
+    "disease": "Black_rust",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 52,
+    "name": "Wheat___Brown_leaf_rust",
+    "crop": "Wheat",
+    "disease": "Brown_leaf_rust",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 53,
+    "name": "Wheat___Flag_smut",
+    "crop": "Wheat",
+    "disease": "Flag_smut",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 54,
+    "name": "Wheat___Leaf_blight",
+    "crop": "Wheat",
+    "disease": "Leaf_blight",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 55,
+    "name": "Wheat___Mite",
+    "crop": "Wheat",
+    "disease": "Mite",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 56,
+    "name": "Wheat___Powdery_mildew",
+    "crop": "Wheat",
+    "disease": "Powdery_mildew",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 57,
+    "name": "Wheat___Scab",
+    "crop": "Wheat",
+    "disease": "Scab",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 58,
+    "name": "Wheat___Stem_fly",
+    "crop": "Wheat",
+    "disease": "Stem_fly",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  },
+  {
+    "index": 59,
+    "name": "Wheat___healthy",
+    "crop": "Wheat",
+    "disease": "healthy",
+    "sources": [
+      "Train",
+      "Validation"
+    ]
+  }
+]

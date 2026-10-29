@@ -1,0 +1,4 @@
+backbone,ckpt_epoch,val_f1_macro,val_acc,val_ece,val_mce,path
+efficientnet_b0,19,0.9523496698615544,0.9795275590551181,0.3196089185598328,0.6387626332480733,C:\Users\guray\Desktop\archive (45)\ultimate_plant_dataset_v1\runs\efficientnet_b0\best_overall_f1.pt
+efficientnet_b1,16,0.9178005422003388,0.952469577666428,0.30800705400636214,0.6037474599751559,C:\Users\guray\Desktop\archive (45)\ultimate_plant_dataset_v1\runs\efficientnet_b1\best_overall_f1.pt
+efficientnet_b2,25,0.9528233177217031,0.9798138869005011,0.31083389158622654,0.6149576857951042,C:\Users\guray\Desktop\archive (45)\ultimate_plant_dataset_v1\runs\efficientnet_b2\best_overall_f1.pt

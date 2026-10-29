@@ -1,112 +1,112 @@
 <p align="center">
-  <img alt="Tarla Tanı" src="https://img.shields.io/badge/Tarla%20Tan%C4%B1-Ultimate%20Plant%20Dataset%20v1-1B4332?style=for-the-badge&labelColor=081C15">
+  <img alt="Field ID" src="https://img.shields.io/badge/Field%20ID-Ultimate%20Plant%20Dataset%20v1-1B4332?style=for-the-badge&labelColor=081C15">
 </p>
 
 <p align="center">
-  <strong>Sızıntısız yaprak tanıma.</strong><br>
-  On üç ürün, altmış sınıf, tek bir grup bölünmesi.<br>
-  Aynı yaprak train’de de test’te de yok.
+  <strong>Leak-free leaf recognition.</strong><br>
+  Thirteen crops, sixty classes, one group split.<br>
+  The same leaf is never in both train and test.
 </p>
 
 <p align="center">
-  <img alt="60 sınıf" src="https://img.shields.io/badge/sınıf-60-1B4332?style=flat-square">
-  <img alt="13 ürün" src="https://img.shields.io/badge/ürün-13-2D6A4F?style=flat-square">
-  <img alt="46677 görüntü" src="https://img.shields.io/badge/görüntü-46 677-40916C?style=flat-square">
-  <img alt="bölünme" src="https://img.shields.io/badge/bölünme-70%20%2F%2015%20%2F%2015-52B788?style=flat-square&labelColor=1B4332">
-  <img alt="sızıntı denetimi" src="https://img.shields.io/badge/sızıntı-PASS-95D5B2?style=flat-square&labelColor=1B4332">
-  <img alt="test doğruluğu" src="https://img.shields.io/badge/EfficientNet--B2%20test-98.12%25-C4A35A?style=flat-square&labelColor=1B4332">
+  <img alt="60 classes" src="https://img.shields.io/badge/classes-60-1B4332?style=flat-square">
+  <img alt="13 crops" src="https://img.shields.io/badge/crops-13-2D6A4F?style=flat-square">
+  <img alt="46677 images" src="https://img.shields.io/badge/images-46%2C677-40916C?style=flat-square">
+  <img alt="split" src="https://img.shields.io/badge/split-70%20%2F%2015%20%2F%2015-52B788?style=flat-square&labelColor=1B4332">
+  <img alt="leakage audit" src="https://img.shields.io/badge/leakage-PASS-95D5B2?style=flat-square&labelColor=1B4332">
+  <img alt="test accuracy" src="https://img.shields.io/badge/EfficientNet--B2%20test-98.12%25-C4A35A?style=flat-square&labelColor=1B4332">
 </p>
 
 <p align="center">
   <img alt="PyTorch" src="https://img.shields.io/badge/PyTorch-timm%20EfficientNet-EE4C2C?style=flat-square&logo=pytorch&logoColor=white">
   <img alt="ONNX" src="https://img.shields.io/badge/ONNX-Runtime-005CED?style=flat-square">
   <img alt="TFLite" src="https://img.shields.io/badge/TFLite-float32-FF6F00?style=flat-square">
-  <img alt="arayüz" src="https://img.shields.io/badge/arayüz-FastAPI%20%2B%20React-61DAFB?style=flat-square&labelColor=1B4332">
+  <img alt="UI" src="https://img.shields.io/badge/UI-FastAPI%20%2B%20React-61DAFB?style=flat-square&labelColor=1B4332">
 </p>
 
 ---
 
-Yaprak fotoğrafından ürünü ve durumu okuyan bir veri seti ile onu eğiten üç EfficientNet.
-Kaynaklar birleştirilirken çevrimdışı augmentasyonlar atıldı, birebir kopyalar tek örneğe indirildi
-ve birbirine benzeyen kareler **aynı** train / val / test biriminde tutuldu.
+A dataset that reads crop and condition from a leaf photo, and the three EfficientNets trained on it.
+While the sources were merged, offline augmentations were dropped, exact duplicates collapsed to a single example,
+and near-duplicate frames were kept in the **same** train / val / test unit.
 
-En iyi model **EfficientNet-B2**. Tutulan test kümesinde doğruluk **%98.12**, macro-F1 **%94.94**,
-top-5 **%99.37**. Sıcaklık ölçeklemesi doğruluğu değiştirmez; güveni düzeltir.
-Test ECE **%31.03 → %1.34**.
+The best model is **EfficientNet-B2**. On the held-out test set, accuracy is **98.12%**, macro-F1 **94.94%**,
+top-5 **99.37%**. Temperature scaling does not change accuracy; it corrects confidence.
+Test ECE **31.03% → 1.34%**.
 
 | | Train | Val | Test |
 |---|---:|---:|---:|
-| Görüntü | 32 657 | 6 985 | 7 035 |
-| Pay | %70.0 | %15.0 | %15.1 |
+| Images | 32,657 | 6,985 | 7,035 |
+| Share | 70.0% | 15.0% | 15.1% |
 
-Toplam **46 677** görüntü. Tohum `42`.
+**46,677** images in total. Seed `42`.
 
 ---
 
-## Ne çözülüyor
+## What this solves
 
-PlantVillage ailesi klasörleri (`2/`, `valid/`, `PlantVillage/`) ile ürün zararlısı / hastalık seti
-(`Train/`, `Validation/`) aynı isim uzayında birleşince üç şey olur: augmentasyon kopyaları,
-piksel piksel aynı dosyalar ve kırpma / sıkıştırma yüzünden hash’i değişmiş yakın ikizler.
-Bunlar rastgele bölünürse test skoru, model görmediği bir yaprağı değil, train’deki kardeşini ölçer.
+When the PlantVillage family folders (`2/`, `valid/`, `PlantVillage/`) and the crop pest / disease set
+(`Train/`, `Validation/`) are merged into one name space, three things show up: augmentation copies,
+pixel-identical files, and near-twins whose hash changed because of cropping or compression.
+A random split then scores a sibling already seen in train, not a leaf the model has never seen.
 
-Bu set o yolu kapatır.
+This set closes that path.
 
 ```mermaid
 flowchart LR
-  A["124 736 taranan dosya"] --> B["Çevrimdışı augmentasyonlar atılır"]
-  B --> C["45 460 düşer"]
-  B --> D["Kimlik + SHA-256 ile gruplanır"]
-  D --> E["32 599 kopya çöker"]
+  A["124,736 files scanned"] --> B["Offline augmentations dropped"]
+  B --> C["45,460 removed"]
+  B --> D["Grouped by identity + SHA-256"]
+  D --> E["32,599 duplicates collapsed"]
   E --> F["pHash, Hamming ≤ 6"]
-  F --> G["Grup tek bir bölünmeye gider"]
+  F --> G["Each group goes to one split"]
   G --> H["70 / 15 / 15"]
-  H --> I["46 677 görüntü · 60 sınıf"]
-  I --> J{"Kimlik ve SHA sızıntısı"}
+  H --> I["46,677 images · 60 classes"]
+  I --> J{"Identity and SHA leakage"}
   J --> K["PASS"]
 ```
 
-Kurallar, `BUILD.md` ile aynı:
+The rules match `BUILD.md`:
 
-- Çevrimdışı augmentasyonlar düşer. Sonekler `_180deg`, `_flip*`, `_newGRR`, `_new*deg*`, `_newPixel*`; önekler `contrast_`, `rotation_` ve benzerleri.
-- İçi içe `PlantVillage/PlantVillage` yok sayılır.
-- Grup anahtarı: PlantVillage kimlik kökü veya ürün dosya adı, artı SHA-256.
-- pHash yakın kopyaları (Hamming ≤ 6) aynı bölünme birimini paylaşır. **3 846** bağlantı.
-- Her birim train, val veya test’ten tam birine gider.
-- Mısırda anlamsal birleşme: Common rust, Gray leaf spot, healthy.
-- Toplamı 100’ün altında kalan sınıf silinir. Bir ürünün sağlıklı sınıfı 100’ün altındaysa o ürünün tüm sınıfları silinir.
-- Tek ürünlük kara listedeki sınıflar ve eski Train/Validation pirinci her zaman dışarıda.
-- Pirinç yalnız `Rice_Leaf_AUG` içindeki augmentasyonsuz orijinallerden gelir. `aug_*` düşer.
+- Offline augmentations are dropped. Suffixes `_180deg`, `_flip*`, `_newGRR`, `_new*deg*`, `_newPixel*`; prefixes `contrast_`, `rotation_`, and the like.
+- Nested `PlantVillage/PlantVillage` is ignored.
+- Group key: PlantVillage identity stem or crop file name, plus SHA-256.
+- pHash near-duplicates (Hamming ≤ 6) share one split unit. **3,846** links.
+- Each unit goes entirely into train, val, or test.
+- Semantic merge on corn: Common rust, Gray leaf spot, healthy.
+- A class whose total is under 100 is removed. If a crop’s healthy class is under 100, every class of that crop is removed.
+- Single-crop blacklist classes, and rice from the old Train/Validation set, are always excluded.
+- Rice comes only from the unaugmented originals inside `Rice_Leaf_AUG`. `aug_*` is dropped.
 
-Kaynak başına tutulan temsilci:
+Representatives kept per source:
 
-| Kaynak | Görüntü |
+| Source | Images |
 |---|---:|
-| PlantVillage | 20 624 |
-| `2/` | 15 353 |
-| Train | 5 410 |
-| valid | 3 830 |
+| PlantVillage | 20,624 |
+| `2/` | 15,353 |
+| Train | 5,410 |
+| valid | 3,830 |
 | Rice_Leaf_AUG | 867 |
 | Validation | 593 |
 
 ---
 
-## On üç tarla
+## Thirteen crops
 
-Altmış sınıf, on üç ürün. Klasör adı `Ürün___Durum`.
+Sixty classes, thirteen crops. Folder name `Crop___Condition`.
 
-| Ürün | Sınıf | Ürün | Sınıf |
+| Crop | Classes | Crop | Classes |
 |---|---:|---|---:|
-| Domates | 10 | Elma | 4 |
-| Buğday | 10 | Üzüm | 4 |
-| Mısır | 6 | Şeker kamışı | 4 |
-| Pirinç | 6 | Patates | 3 |
-| Pamuk | 5 | Kiraz, şeftali, biber, çilek | 2’şer |
+| Tomato | 10 | Apple | 4 |
+| Wheat | 10 | Grape | 4 |
+| Corn | 6 | Sugarcane | 4 |
+| Rice | 6 | Potato | 3 |
+| Cotton | 5 | Cherry, peach, pepper, strawberry | 2 each |
 
 <details>
-<summary>Altmış sınıfın tam dizini</summary>
+<summary>Full index of the sixty classes</summary>
 
-| # | Sınıf |
+| # | Class |
 |---:|---|
 | 0 | Apple · Apple scab |
 | 1 | Apple · Black rot |
@@ -169,7 +169,7 @@ Altmış sınıf, on üç ürün. Klasör adı `Ürün___Durum`.
 | 58 | Wheat · Stem fly |
 | 59 | Wheat · healthy |
 
-Makine adları `class_index.txt` ve `labels.json` içindedir. Her kayıt ürün, hastalık ve hangi kaynak klasörlerden geldiğini tutar.
+Machine names live in `class_index.txt` and `labels.json`. Each record stores the crop, the disease, and which source folders it came from.
 
 </details>
 
@@ -177,78 +177,78 @@ Makine adları `class_index.txt` ve `labels.json` içindedir. Her kayıt ürün,
 
 ## Model
 
-`timm` EfficientNet omurga, sınıflandırma başlığı kesik, üstüne dört katmanlı MLP.
-SiLU, BatchNorm, Dropout. ImageNet ön-eğitimi. En iyi kontrol noktası **val macro-F1**.
+A `timm` EfficientNet backbone with the classification head removed and a four-layer MLP on top.
+SiLU, BatchNorm, Dropout. ImageNet pretraining. The best checkpoint is chosen by **val macro-F1**.
 
 | | |
 |---|---|
-| Omurgalar | `efficientnet_b0`, `efficientnet_b1`, `efficientnet_b2` |
-| Epok | 25, sabit hiperparametre |
-| Görüntü | 224, ImageNet ortalama ve standart sapma |
+| Backbones | `efficientnet_b0`, `efficientnet_b1`, `efficientnet_b2` |
+| Epochs | 25, fixed hyperparameters |
+| Image | 224, ImageNet mean and standard deviation |
 | Batch | 64 |
-| Öğrenme oranı | 3×10⁻⁴ |
+| Learning rate | 3×10⁻⁴ |
 | Weight decay | 1×10⁻⁴ |
 | Label smoothing | 0.1 |
 | MLP | `hidden_mult` 0.5, `drop_rate` 0.1 |
-| Train örnekleme | sınıf dengesine göre `WeightedRandomSampler` |
-| Train dönüşüm | RandomResizedCrop (0.7–1.0), yatay çevirme, ±15° döndürme, ColorJitter |
-| Val / test | kısa kenar 256, sonra 224 center crop |
-| İzleme | MLflow, deney adı `ultimate_plant_efficientnet_v1` |
+| Train sampling | class-balanced `WeightedRandomSampler` |
+| Train transform | RandomResizedCrop (0.7–1.0), horizontal flip, ±15° rotation, ColorJitter |
+| Val / test | short side 256, then a 224 center crop |
+| Tracking | MLflow, experiment name `ultimate_plant_efficientnet_v1` |
 
-Eğitim CUDA ister. Bu çalışma RTX 5090 üzerinde koştu. Çıkarım ONNX ile CPU’da da yürür.
+Training requires CUDA. This run was on an RTX 5090. Inference also runs on CPU through ONNX.
 
-### Test skoru
+### Test score
 
-Sayılar `runs/summary_test.csv` dosyasından. Sıcaklık uygulanmadan önceki argmax metrikleri.
-Doğruluk, F1 ve top-k kalibrasyondan sonra da aynı kalır.
+Numbers are from `runs/summary_test.csv`. Argmax metrics before temperature is applied.
+Accuracy, F1, and top-k stay the same after calibration.
 
-| Omurga | Doğruluk | Macro-F1 | Ağırlıklı F1 | Top-3 | Top-5 | Kappa | ROC-AUC |
+| Backbone | Accuracy | Macro-F1 | Weighted F1 | Top-3 | Top-5 | Kappa | ROC-AUC |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | **B2** | **98.12%** | **94.94%** | **98.11%** | **99.26%** | **99.37%** | **0.981** | 0.978 |
 | B0 | 97.58% | 93.33% | 97.56% | 99.18% | 99.43% | 0.975 | 0.981 |
 | B1 | 94.64% | 90.00% | 94.69% | 98.39% | 98.66% | 0.945 | 0.972 |
 
-Val makro-F1 ile seçilen B2, testte de önde. B0, ROC-AUC ve top-5’te yarışır. B1 bu sette geride kalır.
+B2, selected by val macro-F1, also leads on test. B0 is close on ROC-AUC and top-5. B1 trails on this set.
 
-### Güven
+### Confidence
 
-Sıcaklık yalnız validation NLL üzerinde bulunur, teste bakılmaz. Çıkarım: `softmax(logits / T)`.
+Temperature is fit on validation NLL only. The test set is not used. Inference is `softmax(logits / T)`.
 
-| Omurga | T | Test ECE önce | Test ECE sonra | Test NLL önce | Test NLL sonra |
+| Backbone | T | Test ECE before | Test ECE after | Test NLL before | Test NLL after |
 |---|---:|---:|---:|---:|---:|
 | B0 | 0.481 | 31.40% | 1.47% | 0.517 | 0.163 |
 | B1 | 0.540 | 30.03% | 2.19% | 0.608 | 0.297 |
 | **B2** | **0.511** | **31.03%** | **1.34%** | **0.492** | **0.147** |
 
-Dışa aktarılan grafikte T gömülüdür. Çıktı kalibre logit’tir. `softmax` yeter, ikinci bir bölme yok.
+The exported graph has T baked in. The output is calibrated logits. `softmax` is enough; there is no second division.
 
-| Biçim | B2 test doğruluğu | Nerede koştu |
+| Format | B2 test accuracy | Where it ran |
 |---|---:|---|
 | `.pth` | 98.12% | CUDA |
 | TorchScript `.pt` | 98.12% | CUDA |
 | ONNX | 98.12% | CUDAExecutionProvider |
 | TFLite float32 | 98.12% | CPU |
-| TFLite float16 | yüklenmedi | CPU yorumlayıcısı float16 CONV desteklemiyor |
+| TFLite float16 | failed to load | The CPU interpreter does not support float16 CONV |
 
 ---
 
-## Tarla tanı
+## Field ID
 
-Yerel arayüz B2 ONNX kullanır. Fotoğraf sürüklenir, ilk dört tahmin çubuk ve pasta olarak gelir.
-Etiketler Türkçedir: ürün, hastalık veya zararlı, sağlıklı ayrımı.
+The local UI uses B2 ONNX. Drop a photo in and the top four predictions come back as bars and a pie chart.
+Labels are in Turkish: crop, disease or pest, and whether the leaf is healthy.
 
 ```powershell
 cd infer_ui
 .\start.ps1
 ```
 
-Arayüz `http://127.0.0.1:5173`. API `http://127.0.0.1:8000/api/health`.
+The UI is at `http://127.0.0.1:5173`. The API health check is `http://127.0.0.1:8000/api/health`.
 
-Önkoşul: `runs/exported/efficientnet_b2/efficientnet_b2.onnx` diskte olsun.
-Ağırlıklar depoya girmez. Eğitim ve `python export_models.py` aynı makinede üretmiş olmalı
-ya da dosya elle bu yola konmalı.
+`runs/exported/efficientnet_b2/efficientnet_b2.onnx` must already be on disk.
+Weights are not in the repository. Training and `python export_models.py` must have produced them on this machine,
+or the file must be placed on that path by hand.
 
-Ayrı pencereler için:
+To run the two processes in separate windows:
 
 ```powershell
 cd infer_ui\backend
@@ -261,11 +261,11 @@ npm install
 npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
-Ön işleme eğitimdeki val/test yolu ile aynıdır: kısa kenar 256, 224 center crop, ImageNet normalizasyonu.
+Preprocessing matches the training val/test path: short side 256, 224 center crop, ImageNet normalization.
 
 ---
 
-## Çalıştırma
+## How to run
 
 ```powershell
 python script1.py
@@ -277,54 +277,54 @@ python audit_leakage.py
 python audit_phash_stratification.py
 ```
 
-| Parça | Ne yapar |
+| Piece | What it does |
 |---|---|
-| `script1.py` | B0–B2 eğitimi, val macro-F1 kontrol noktası, MLflow |
-| `temperature_scaling.py` | T’yi val’de oturtur, isteğe bağlı test raporu |
-| `export_models.py` | T gömülü `.pth`, `.pt`, `.onnx`, `.tflite` |
-| `test_best_model.py` | Seçilen modeli testte geniş metrik ile ölçer |
-| `test_exported_formats.py` | Dört biçimin testte örtüştüğünü doğrular |
-| `audit_leakage.py` | Kimlik, SHA, yol ve etiket tutarlılığı |
-| `audit_phash_stratification.py` | Yakın kopyaların bölünme birimini bozmadığını yoklar |
-| `analiz.ipynb` | Keşif notları |
-| `infer_ui/` | FastAPI + React arayüzü |
+| `script1.py` | Trains B0–B2, saves the val macro-F1 checkpoint, logs to MLflow |
+| `temperature_scaling.py` | Fits T on val, with an optional test report |
+| `export_models.py` | Writes `.pth`, `.pt`, `.onnx`, and `.tflite` with T baked in |
+| `test_best_model.py` | Scores the selected model on test with the full metric set |
+| `test_exported_formats.py` | Checks that the four formats agree on test |
+| `audit_leakage.py` | Identity, SHA, path, and label consistency |
+| `audit_phash_stratification.py` | Checks that near-duplicates stayed inside one split unit |
+| `analiz.ipynb` | Exploration notes |
+| `infer_ui/` | FastAPI + React UI |
 
-Eğitim bağımlılıkları: `torch`, `torchvision`, `timm`, `mlflow`, `numpy`, `pandas`, `pillow`, `scikit-learn`, `tqdm`.
-Dışa aktarma ek olarak ONNX ve TFLite araçlarını ister.
-Arayüz backend’i `infer_ui/backend/requirements.txt` içindedir.
-`HF_TOKEN` isteğe bağlıdır. Yoksa ImageNet ağırlıkları yine iner, Hugging Face kotası daha çabuk dolabilir.
+Training dependencies: `torch`, `torchvision`, `timm`, `mlflow`, `numpy`, `pandas`, `pillow`, `scikit-learn`, `tqdm`.
+Export also needs the ONNX and TFLite toolchains.
+The UI backend dependencies are in `infer_ui/backend/requirements.txt`.
+`HF_TOKEN` is optional. Without it, ImageNet weights still download, and the Hugging Face quota can fill sooner.
 
 ---
 
-## Depoda ne var, ne yok
+## What is in the repo, and what stays local
 
-`.gitignore` ilk commit’ten önce durur. Görüntüler ve ağırlıklar klona binmez.
+`.gitignore` is in place before the first commit. Images and weights do not come along in a clone.
 
-| Diskte kalır | Neden |
+| Stays on disk | Why |
 |---|---|
-| `train/`, `val/`, `test/` | Yaklaşık 3.1 GB yaprak görüntüsü |
-| `*.pt`, `*.pth`, `*.onnx`, `*.tflite` | Yaklaşık 840 MB kontrol noktası ve grafik |
-| `mlruns/` | MLflow’un yerel deposu, eğitim yeniden yazar |
-| `node_modules/`, `__pycache__/`, `.venv/`, `.env` | Kurulum, önbellek, gizli anahtar |
+| `train/`, `val/`, `test/` | About 3.1 GB of leaf images |
+| `*.pt`, `*.pth`, `*.onnx`, `*.tflite` | About 840 MB of checkpoints and graphs |
+| `mlruns/` | MLflow’s local store; training rewrites it |
+| `node_modules/`, `__pycache__/`, `.venv/`, `.env` | Install, cache, secrets |
 
-| Depoya girer | Neden |
+| Goes into the repo | Why |
 |---|---|
-| Kod, `labels.json`, `class_index.txt`, `stats.json` | Setin sözleşmesi |
-| `manifest.csv` | Görüntü başına kaynak izi, yaklaşık 15 MB |
-| `runs/` altındaki `.csv`, `.json`, `.txt` | Skor, karışıklık matrisi, sıcaklık |
-| `infer_ui` kaynakları ve `package-lock.json` | Arayüzün yeniden kurulabilir hali |
-| `BUILD.md` | Birleştirme kurallarının kısa kaydı |
+| Code, `labels.json`, `class_index.txt`, `stats.json` | The dataset contract |
+| `manifest.csv` | Per-image source trace, about 15 MB |
+| `.csv`, `.json`, `.txt` under `runs/` | Scores, confusion matrix, temperature |
+| `infer_ui` sources and `package-lock.json` | A UI that can be reinstalled |
+| `BUILD.md` | Short record of the merge rules |
 
-Görüntüler bu makinede hardlink. Klasörleri silmek kaynak dosyayı da düşürebilir. Taşımadan önce kopyalayın.
+Images on this machine are hardlinks. Deleting a folder can also delete the source file. Copy before you move them.
 
 ---
 
 <p align="center">
-  <img alt="46 677 görüntü" src="https://img.shields.io/badge/124 736%20tarandı-46 677%20kaldı-1B4332?style=for-the-badge&labelColor=081C15">
+  <img alt="46,677 images" src="https://img.shields.io/badge/124%2C736%20scanned-46%2C677%20kept-1B4332?style=for-the-badge&labelColor=081C15">
   &nbsp;
-  <img alt="ECE" src="https://img.shields.io/badge/B2%20ECE-31.03%25%20→%201.34%25-C4A35A?style=for-the-badge&labelColor=1B4332">
+  <img alt="ECE" src="https://img.shields.io/badge/B2%20ECE-31.03%25%20%E2%86%92%201.34%25-C4A35A?style=for-the-badge&labelColor=1B4332">
 </p>
 
 <p align="center">
-  <sub>Grup bölünmesi · tohum 42 · kimlik ve SHA denetimi geçti.</sub>
+  <sub>Group split · seed 42 · identity and SHA audit passed.</sub>
 </p>
